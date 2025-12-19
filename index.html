@@ -1,81 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link id="dynamic-favicon" rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAhCAYAAACXKuswAAAABHNCSVQICAgIfAhkiAAAACRJREFUWIXtzrENADAMAzGQ+0/zysJCJFhlk5YY8AOPinhoW17UfabxvOTOl+uMCY7kAAAAASUVORK5CYII=">
+<link id="dynamic-favicon" rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAhCAYAAACXKuswAAAABHNCSVQICAgIfAhkiAAAACRJREFUWIXtzrENADAMAzGQ+0/zysJCJFhlk5YY8AOPinhoW17UfabxvOTOl+uMCY7kAAAAASUVORK5CYII=">
 <meta charset="UTF-8">
 <title>Happy Birthday, Anbarin Jan!</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --neon-green: #14ff60;
-  --neon-blue: #00ffe0;
-  --neon-purple: #b45cff;
-  --term-glass: rgba(0,16,13,0.96);
-  --scanline: rgba(46,255,185,0.03);
-  --border-glow: #00ffe0;
-  --text-main: #d2ffe2;
-  --text-glow: #5cffb7;
-  --sig-color: #bfffd4;
+--neon-green: #14ff60;
+--neon-blue: #00ffe0;
+--neon-purple: #b45cff;
+--term-glass: rgba(0,16,13,0.96);
+--scanline: rgba(46,255,185,0.03);
+--border-glow: #00ffe0;
+--text-main: #d2ffe2;
+--text-glow: #5cffb7;
+--sig-color: #bfffd4;
 }
 html, body {
-  height:100%;
-  min-height:100%;
+height:100%;
+min-height:100%;
 }
 body {
-  min-height: 100vh;
-  margin: 0;
-  background:
-    radial-gradient(circle at 65% 41%, #22ec69 0%, #0b1110 53%),
-    linear-gradient(135deg, #0b1110 82%, #077a4a 100%);
-  font-family: 'Fira Mono', Consolas, 'Segoe UI Mono', monospace;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
+min-height: 100vh;
+margin: 0;
+background:
+radial-gradient(circle at 65% 41%, #22ec69 0%, #0b1110 53%),
+linear-gradient(135deg, #0b1110 82%, #077a4a 100%);
+font-family: 'Fira Mono', Consolas, 'Segoe UI Mono', monospace;
+display: flex;
+align-items: center;
+justify-content: center;
+overflow: auto;          
 }
 .cyber-grid {
-  pointer-events:none; z-index:0;
-  position:fixed; inset:0;
-  width:100vw; height:100vh; min-width:100%;
-  opacity:.07; mix-blend-mode: lighten;
+pointer-events:none; z-index:0;
+position:fixed; inset:0;
+width:100vw; height:100vh; min-width:100%;
+opacity:.07; mix-blend-mode: lighten;
 }
 .cyber-grid svg { width:100vw; height:100vh; display:block;}
 .matrix-rain {
-  pointer-events:none; position:fixed; z-index:0;
-  inset:0; width:100vw; height:100vh;
-  overflow:hidden; opacity:.12;
+pointer-events:none; position:fixed; z-index:0;
+inset:0; width:100vw; height:100vh;
+overflow:hidden; opacity:.12;
 }
 .matrix-column {
-  position: absolute; top:-13%; width:32px; height:110%;
-  left: var(--left,0);
-  font-family: inherit; font-size:2.1vw;
-  color: #1effb3; user-select:none;
-  white-space:pre;
-  filter: blur(0.4px) drop-shadow(0 0 10px #23fa52b9);
-  opacity:.91;
-  animation: matrixFall linear infinite;
-  animation-duration: var(--speed,7s);
-  animation-delay: var(--delay,-2s);
+position: absolute; top:-13%; width:32px; height:110%;
+left: var(--left,0);
+font-family: inherit; font-size:2.1vw;
+color: #1effb3; user-select:none;
+white-space:pre;
+filter: blur(0.4px) drop-shadow(0 0 10px #23fa52b9);
+opacity:.91;
+animation: matrixFall linear infinite;
+animation-duration: var(--speed,7s);
+animation-delay: var(--delay,-2s);
 }
 @keyframes matrixFall { 0%{top:-15%;} 100%{top:104%;}}
 .term-bg-scan {
-  position:fixed;
-  inset:0; z-index:2;
-  pointer-events:none;
-  background: repeating-linear-gradient(
+position:fixed;
+inset:0; z-index:2;
+pointer-events:none;
+background: repeating-linear-gradient(
      to bottom,
-    var(--scanline),
-    var(--scanline) 2px,
-    transparent 2px,
-    transparent 17px
+var(--scanline),
+var(--scanline) 2px,
+transparent 2px,
+transparent 17px
   );
-  mix-blend-mode: lighten;
+mix-blend-mode: lighten;
 }
 .term-flicker {
-  position:fixed; inset:0; pointer-events:none; z-index:3;
-  animation: flicker 2.75s infinite steps(70);
-  background:linear-gradient(90deg,rgba(21,255,101,0.06) 0 40%,transparent 70% 100%);
+position:fixed; inset:0; pointer-events:none; z-index:3;
+animation: flicker 2.75s infinite steps(70);
+background:linear-gradient(90deg,rgba(21,255,101,0.06) 0 40%,transparent 70% 100%);
 }
 @keyframes flicker {
   4%,7%,12% { opacity:.97;}
@@ -85,68 +85,69 @@ body {
   100% {opacity:.97;}
 }
 .term-body {
-  background: var(--term-glass);
-  border-radius: 14px;
-  box-shadow: 0 0 50px #21ff8c35, 0 0 0 #21ff93;
-  border: 2.7px solid var(--border-glow);
-  max-width: 720px; width:96vw;
-  margin: 0px auto;
-  position: relative;
-  z-index:99;
-  padding:0;
+background: var(--term-glass);
+border-radius: 14px;
+box-shadow: 0 0 50px #21ff8c35, 0 0 0 #21ff93;
+border: 2.7px solid var(--border-glow);
+max-width: 720px; width:96vw;
+margin: 0px auto;
+position: relative;
+z-index:99;
+padding:0;
+ padding-bottom: 2em;
 }
 .term-topbar {
-  display: flex; align-items: center;
-  background: linear-gradient(90deg, #0d1714 93%,#22a98720 100%);
-  padding: 0.6em 1.1em 0.5em 1.15em;
-  border-bottom: 1.7px solid #0cffb180;
-  border-radius: 14px 14px 0 0;
+display: flex; align-items: center;
+background: linear-gradient(90deg, #0d1714 93%,#22a98720 100%);
+padding: 0.6em 1.1em 0.5em 1.15em;
+border-bottom: 1.7px solid #0cffb180;
+border-radius: 14px 14px 0 0;
 }
 .t-dot {
-  width:13px; height:13px; border-radius:50%; margin-right:7px;
-  box-shadow: 0 0 4px #59ffad99,0 0 0 #12ffb133;
+width:13px; height:13px; border-radius:50%; margin-right:7px;
+box-shadow: 0 0 4px #59ffad99,0 0 0 #12ffb133;
 }
 .t-dot.red {background: #FF446B;}
 .t-dot.yellow {background:#FFDE46;}
 .t-dot.green {background: #12FF9E;}
 .t-title {
-  color: var(--neon-blue);
-  font-weight: bold;
-  margin-left:10px;
-  letter-spacing: 0.09em;
-  text-shadow:0 0 4px var(--neon-blue),0 0 12px #07ffc150;
-  font-size:1.08em;
+color: var(--neon-blue);
+font-weight: bold;
+margin-left:10px;
+letter-spacing: 0.09em;
+text-shadow:0 0 4px var(--neon-blue),0 0 12px #07ffc150;
+font-size:1.08em;
 }
 .term-content {
-  position: relative;
-  padding: 2.1em 1.7em 2em 1.4em;
-  background: linear-gradient(110deg,#0c1511 75%,#062818 100%);
-  border-radius: 0 0 12px 12px;
-  box-shadow: 0 0 10px #13fda455;
-  color: var(--text-main);
-  font-size: 1.08em;
-  z-index:5;
-  min-height:220px;
+position: relative;
+padding: 2.1em 1.7em 2em 1.4em;
+background: linear-gradient(110deg,#0c1511 75%,#062818 100%);
+border-radius: 0 0 12px 12px;
+box-shadow: 0 0 10px #13fda455;
+color: var(--text-main);
+font-size: 1.08em;
+z-index:5;
+min-height:220px;
 }
 .term-prompt-line {margin:0 0 0.85em 0;}
 .term-prompt {color: var(--neon-green); font-weight:bold; font-size: 1em;}
 .term-caret {color: var(--neon-green); font-weight: bold; animation: blink-caret 1.18s steps(1) infinite;}
 @keyframes blink-caret { 50% {opacity: 0; } }
 .term-codeblock {
-  background: #031410ed;
-  color: #a2ffc1;
-  font-family: 'Fira Mono', Consolas, monospace;
-  border-radius: 7px;
-  border: 1.3px solid var(--neon-blue);
-  box-shadow: 0 0 9px #13ffc366;
-  padding: 1.2em 1.5em 1em 1.5em;
-  font-size:1em;
-  margin-bottom: 1.6em;
-  position: relative;
-  overflow-x: auto;
-  min-height: 164px;
-  max-width: 100%;
-  word-break: break-all;
+background: #031410ed;
+color: #a2ffc1;
+font-family: 'Fira Mono', Consolas, monospace;
+border-radius: 7px;
+border: 1.3px solid var(--neon-blue);
+box-shadow: 0 0 9px #13ffc366;
+padding: 1.2em 1.5em 1em 1.5em;
+font-size:1em;
+margin-bottom: 1.6em;
+position: relative;
+overflow-x: auto;
+min-height: 164px;
+max-width: 100%;
+word-break: break-all;
 }
 .term-codeblock .comment {color:#63ffe6;}
 .term-codeblock .keyword {color:#eaff5f;}
@@ -156,98 +157,107 @@ body {
 .term-codeblock .var {color:#68b6fd;}
 .term-codeblock .emoji {font-size:1.18em;}
 .term-msg {
-  background: linear-gradient(90deg,#073318 84%,#174b2b 100%);
-  border-left: 4px solid var(--neon-green);
-  color: var(--text-glow);
-  border-radius: 7px;
-  margin:1.06em 0 1.25em 0;
-  padding: 1.1em 1.2em 0.75em 1.3em;
-  font-size: 1.04em;
-  font-family: inherit;
-  text-shadow:0 0 2px #26ffb46d;
-  min-height: 81px;
-  word-break: break-word;
+background: linear-gradient(90deg,#073318 84%,#174b2b 100%);
+border-left: 4px solid var(--neon-green);
+color: var(--text-glow);
+border-radius: 7px;
+margin:1.06em 0 1.25em 0;
+padding: 1.1em 1.2em 0.75em 1.3em;
+font-size: 1.04em;
+font-family: inherit;
+text-shadow:0 0 2px #26ffb46d;
+min-height: 81px;
+word-break: break-word;
 }
 .term-names {
-  color:var(--neon-blue); font-weight: bold; font-style: italic; text-shadow: 0 0 2px #00ffe0b3;
+color:var(--neon-blue); font-weight: bold; font-style: italic; text-shadow: 0 0 2px #00ffe0b3;
 }
 .term-signature {
-  margin:2em 0 0 0;
-  color:var(--sig-color);
-  opacity: 0.93;
-  letter-spacing:0.04em;
-  font-size:0.97em;
-  text-align:center;
-  text-shadow: 0 0 3px #82ffdba0;
+margin:2em 0 0 0;
+color:var(--sig-color);
+opacity: 0.93;
+letter-spacing:0.04em;
+font-size:0.97em;
+text-align:center;
+text-shadow: 0 0 3px #82ffdba0;
 }
 .term-stars {
-  color: var(--neon-purple); font-size:1.24em; margin-bottom:0.6em; display:inline-block;
-  animation: termStarBlink 1.7s infinite;
-  letter-spacing:0.12em;
+color: var(--neon-purple); font-size:1.24em; margin-bottom:0.6em; display:inline-block;
+animation: termStarBlink 1.7s infinite;
+letter-spacing:0.12em;
 }
 @keyframes termStarBlink { 0%,100%{opacity:1;} 50%{opacity:0.22;} 67%{opacity:.49;}}
 .terminal-overlay {
-  position:fixed; left:0; top:0; width:100vw; height:100vh; z-index:2000;
-  background:rgba(17,25,25,0.93);
-  backdrop-filter: blur(3.5px);
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  transition:opacity 0.6s;
+position:fixed; left:0; top:0; width:100vw; height:100vh; z-index:2000;
+background:rgba(17,25,25,0.93);
+backdrop-filter: blur(3.5px);
+display:flex; flex-direction:column; align-items:center; justify-content:center;
+transition:opacity 0.6s;
 }
 .terminal-overlay-content{
-  display:flex; flex-direction:column; align-items:center; justify-content:center;
-  z-index:2011;
+display:flex; flex-direction:column; align-items:center; justify-content:center;
+z-index:2011;
 }
 .terminal-overlay-btn {
-  background:linear-gradient(90deg,#0e4031 45%,#10fed3 100%);
-  border:2.5px solid #0affb3;
-  color:#19ffd2;
-  box-shadow:0 0 22px #19ffeba2, 0 0 49px #0affb324;
-  font-family:inherit;
-  font-size:1.3em;
-  padding:0.6em 2.3em;
-  border-radius:14px;
-  font-weight:bold;
-  margin-top:2.1em;
-  cursor:pointer;
-  letter-spacing:0.1em;
-  transition:background 0.2s,color 0.11s, box-shadow 0.12s,border 0.2s;
-  opacity:0.98;
+background:linear-gradient(90deg,#0e4031 45%,#10fed3 100%);
+border:2.5px solid #0affb3;
+color:#19ffd2;
+box-shadow:0 0 22px #19ffeba2, 0 0 49px #0affb324;
+font-family:inherit;
+font-size:1.3em;
+padding:0.6em 2.3em;
+border-radius:14px;
+font-weight:bold;
+margin-top:2.1em;
+cursor:pointer;
+letter-spacing:0.1em;
+transition:background 0.2s,color 0.11s, box-shadow 0.12s,border 0.2s;
+opacity:0.98;
 }
 .terminal-overlay-btn:hover {
-  background:linear-gradient(90deg,#17f7d2 40%,#0b2821 100%);
-  color:#1c1f1f;
-  box-shadow:0 0 44px #38fff2d6;
+background:linear-gradient(90deg,#17f7d2 40%,#0b2821 100%);
+color:#1c1f1f;
+box-shadow:0 0 44px #38fff2d6;
 }
 .terminal-overlay-title {
-  color:#18ffd7;
-  font-size:2.1em;
-  margin-bottom:0.63em;
-  font-weight:bold;
-  font-family:inherit;
-  letter-spacing:0.07em;
-  text-shadow:0 0 12px #38ffb288,0 0 4px #0dfeba77;
+color:#18ffd7;
+font-size:2.1em;
+margin-bottom:0.63em;
+font-weight:bold;
+font-family:inherit;
+letter-spacing:0.07em;
+text-shadow:0 0 12px #38ffb288,0 0 4px #0dfeba77;
 }
 .terminal-overlay-desc {
-  color:#e2fff2;
-  font-size:1.09em;
-  font-weight:normal;
-  text-shadow:0 0 4px #91fff1a1,0 0 12px #14ffcf1f;
-  margin-top:0.22em;
-  padding-left: 20px;
-  
+color:#e2fff2;
+font-size:1.09em;
+font-weight:normal;
+text-shadow:0 0 4px #91fff1a1,0 0 12px #14ffcf1f;
+margin-top:0.22em;
+padding-left: 20px;
 }
-@media (max-width:900px){
-  .term-body {max-width:99vw;}
-  .term-topbar,.term-content{padding-left:0.57em;}
-}
-@media (max-width:700px){
-  .term-content {font-size:0.98em;}
+@media (max-width: 700px) {
+  body {
+    overflow: auto !important;
+    align-items: flex-start;
+    min-height: 100vh;
+  }
+  .term-body {
+    margin: 25px auto;
+    max-width: 100vw;
+    width: 100vw;
+    padding: 5px;
+    padding-bottom: 2em;
+  }
+  .term-content {
+    padding:1.15em 0.2em 1.1em 0.15em;
+    font-size:0.98em;
+  }
   .terminal-overlay-btn{font-size:1em;padding:0.48em 1em;}
   .terminal-overlay-title{font-size:1.25em;}
 }
 @media (max-width:520px){
-  .term-body {max-width:100vw;width:100vw; padding: 5px;
-    margin: 25px;}
+  .term-body {max-width:100vw;width:100vw; padding: 5px; margin: 25px;}
   .term-content {padding:1.15em 0.2em 1.1em 0.15em;}
   .term-codeblock, .term-msg {font-size:0.95em;padding-left:0.42em;min-width:0;}
 }
@@ -258,23 +268,18 @@ body {
 }
 </style>
 <script>
-// Generate a favicon with confetti
 function setConfettiFavicon() {
   const size = 64;
   const canvas = document.createElement('canvas');
   canvas.width = size;
   canvas.height = size;
   const ctx = canvas.getContext('2d');
-
-  // Draw circle background
   ctx.beginPath();
   ctx.arc(size / 2, size / 2, size / 2 - 2, 0, 2 * Math.PI);
   ctx.fillStyle = '#12FF9E';
   ctx.shadowColor = '#0ceb98';
   ctx.shadowBlur = 6;
   ctx.fill();
-
-  // Confetti shapes
   const confettiColors = ['#ffecac', '#14ff60', '#00ffe0', '#b45cff', '#FF446B', '#FFDE46', '#68b6fd'];
   for (let i = 0; i < 12; i++) {
     let x = Math.floor(Math.random() * (size - 16)) + 8;
@@ -287,8 +292,6 @@ function setConfettiFavicon() {
     ctx.fill();
     ctx.globalAlpha = 1;
   }
-
-  // Optionally draw a star in the middle
   ctx.beginPath();
   ctx.font = 'bold 26px serif';
   ctx.textBaseline = 'middle';
@@ -296,8 +299,6 @@ function setConfettiFavicon() {
   ctx.fillStyle = '#fff7d1';
   ctx.shadowBlur = 2;
   ctx.fillText('✦', size/2, size/2);
-
-  // Update favicon
   const url = canvas.toDataURL('image/png');
   let favicon = document.getElementById('dynamic-favicon');
   if (!favicon) {
@@ -378,7 +379,6 @@ window.addEventListener('DOMContentLoaded', setConfettiFavicon);
 <script>
 const initialSpeed = 38;
 const finalSpeed = 8;
-
 const codeText =
 `<span class="comment"># Happy Birthday, Anbarin<span class="term-caret">_</span> Jan! <span class="emoji">🎂🎉</span></span>
 <span class="keyword">def</span> <span class="function">birthday_wishes</span>(<span class="var">name</span>):
