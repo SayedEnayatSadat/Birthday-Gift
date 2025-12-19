@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <link id="dynamic-favicon" rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACEAAAAhCAYAAACXKuswAAAABHNCSVQICAgIfAhkiAAAACRJREFUWIXtzrENADAMAzGQ+0/zysJCJFhlk5YY8AOPinhoW17UfabxvOTOl+uMCY7kAAAAASUVORK5CYII=">
 <meta charset="UTF-8">
 <title>Happy Birthday, Anbarin Jan!</title>
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -256,6 +257,59 @@ body {
   .terminal-overlay-desc{font-size:0.91em;}
 }
 </style>
+<script>
+// Generate a favicon with confetti
+function setConfettiFavicon() {
+  const size = 64;
+  const canvas = document.createElement('canvas');
+  canvas.width = size;
+  canvas.height = size;
+  const ctx = canvas.getContext('2d');
+
+  // Draw circle background
+  ctx.beginPath();
+  ctx.arc(size / 2, size / 2, size / 2 - 2, 0, 2 * Math.PI);
+  ctx.fillStyle = '#12FF9E';
+  ctx.shadowColor = '#0ceb98';
+  ctx.shadowBlur = 6;
+  ctx.fill();
+
+  // Confetti shapes
+  const confettiColors = ['#ffecac', '#14ff60', '#00ffe0', '#b45cff', '#FF446B', '#FFDE46', '#68b6fd'];
+  for (let i = 0; i < 12; i++) {
+    let x = Math.floor(Math.random() * (size - 16)) + 8;
+    let y = Math.floor(Math.random() * (size - 16)) + 8;
+    let r = Math.floor(Math.random() * 4) + 2;
+    ctx.beginPath();
+    ctx.arc(x, y, r, 0, 2 * Math.PI);
+    ctx.fillStyle = confettiColors[Math.floor(Math.random() * confettiColors.length)];
+    ctx.globalAlpha = 0.73;
+    ctx.fill();
+    ctx.globalAlpha = 1;
+  }
+
+  // Optionally draw a star in the middle
+  ctx.beginPath();
+  ctx.font = 'bold 26px serif';
+  ctx.textBaseline = 'middle';
+  ctx.textAlign = 'center';
+  ctx.fillStyle = '#fff7d1';
+  ctx.shadowBlur = 2;
+  ctx.fillText('✦', size/2, size/2);
+
+  // Update favicon
+  const url = canvas.toDataURL('image/png');
+  let favicon = document.getElementById('dynamic-favicon');
+  if (!favicon) {
+    favicon = document.createElement('link');
+    favicon.id = 'dynamic-favicon';
+    favicon.rel = 'icon';
+    document.head.appendChild(favicon);
+  }
+  favicon.href = url;
+}
+window.addEventListener('DOMContentLoaded', setConfettiFavicon);
+</script>
 </head>
 <body>
 <div class="terminal-overlay" id="terminal-overlay">
@@ -284,13 +338,13 @@ body {
   </svg>
 </div>
 <div class="matrix-rain" aria-hidden="true">
-  <div class="matrix-column" style="--left:3vw;  --delay:-1.61s; --speed:6.7s;">Anbarin&#10;10110110&#10;01011010&#10;11010100&#10;01100110&#10;10100101</div>
+  <div class="matrix-column" style="--left:3vw;  --delay:-1.61s; --speed:6.7s;">ANBARIN1&#10;10110110&#10;01011010&#10;11010100&#10;01100110&#10;10100101</div>
   <div class="matrix-column" style="--left:12vw; --delay:-2.81s; --speed:8.3s;">1001011&#10;0101101&#10;0110010&#10;1101010&#10;0111100&#10;0101010</div>
   <div class="matrix-column" style="--left:24vw; --delay:-4.11s; --speed:7.2s;">0A N B A R I N 1&#10;110101&#10;101011&#10;110010&#10;0110</div>
   <div class="matrix-column" style="--left:38vw; --delay:-1.23s; --speed:5.7s;">01101101&#10;10010110&#10;01110100&#10;10101001</div>
-  <div class="matrix-column" style="--left:56vw; --delay:-3.19s; --speed:8.5s;">10 0 11&#10;1011&#10;0110&#10;101101&#10;01010</div>
+  <div class="matrix-column" style="--left:56vw; --delay:-3.19s; --speed:8.5s;">10 0 11&#10;1011&#10;0110&#10;10ABIM&#10;01010</div>
   <div class="matrix-column" style="--left:68vw; --delay:-2.63s; --speed:7.7s;">10&#10;0110&#10;1&#10;1100&#10;01010101&#10;001011</div>
-  <div class="matrix-column" style="--left:74vw; --delay:-1.87s; --speed:9.6s;">hack the world&#10;0010&#10;00111</div>
+  <div class="matrix-column" style="--left:74vw; --delay:-1.87s; --speed:9.6s;">hack the world Abim&#10;0010&#10;00111</div>
   <div class="matrix-column" style="--left:82vw; --delay:-3.95s; --speed:8.1s;">01100110&#10;01100110&#10;01010101&#10;011101</div>
   <div class="matrix-column" style="--left:93vw; --delay:-6.2s; --speed:7.6s;">101010101&#10;End_of_Frame</div>
 </div>
@@ -317,7 +371,7 @@ body {
       <span class="term-stars">✦✦✦</span>
       <br>
       Wishing you a year as bright as TXT’s stars and as inspiring as your favorite music.<br>
-      <strong>— With love from your uncle &amp; Khala + Hilal 💚</strong>
+      <strong>— With love from your uncle &amp; Khala + Hilal 💚 Love You</strong>
     </div>
   </div>
 </div>
@@ -340,7 +394,7 @@ const codeText =
 <span class="function">birthday_wishes</span>(<span class="string">"Anbarin"</span>)`;
 
 const msgText =
-`Anbarin<span class="term-caret">_</span>, may your year be bright and inspiring, just like TXT’s music.<br>
+`Anbarin<span class="term-caret">_</span>, may your year be Inshallah bright and inspiring, just like TXT’s music.<br>
 May you always find creativity like <span class="term-names">Soobin</span>,
 energy like <span class="term-names">Yeonjun</span>,
 joy like <span class="term-names">Beomgyu</span>,
