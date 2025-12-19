@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Happy Birthday, Anbarin Jan!</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Fira+Mono:400,700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --neon-green: #14ff60;
+  --neon-blue: #00ffe0;
+  --neon-purple: #b45cff;
+  --term-glass: rgba(0,16,13,0.96);
+  --scanline: rgba(46,255,185,0.03);
+  --border-glow: #00ffe0;
+  --text-main: #d2ffe2;
+  --text-glow: #5cffb7;
+  --sig-color: #bfffd4;
+}
+html, body {
+  height:100%;
+  min-height:100%;
+}
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 65% 41%, #22ec69 0%, #0b1110 53%),
+    linear-gradient(135deg, #0b1110 82%, #077a4a 100%);
+  font-family: 'Fira Mono', Consolas, 'Segoe UI Mono', monospace;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.cyber-grid {
+  pointer-events:none; z-index:0;
+  position:fixed; inset:0;
+  width:100vw; height:100vh; min-width:100%;
+  opacity:.07; mix-blend-mode: lighten;
+}
+.cyber-grid svg { width:100vw; height:100vh; display:block;}
+.matrix-rain {
+  pointer-events:none; position:fixed; z-index:0;
+  inset:0; width:100vw; height:100vh;
+  overflow:hidden; opacity:.12;
+}
+.matrix-column {
+  position: absolute; top:-13%; width:32px; height:110%;
+  left: var(--left,0);
+  font-family: inherit; font-size:2.1vw;
+  color: #1effb3; user-select:none;
+  white-space:pre;
+  filter: blur(0.4px) drop-shadow(0 0 10px #23fa52b9);
+  opacity:.91;
+  animation: matrixFall linear infinite;
+  animation-duration: var(--speed,7s);
+  animation-delay: var(--delay,-2s);
+}
+@keyframes matrixFall { 0%{top:-15%;} 100%{top:104%;}}
+.term-bg-scan {
+  position:fixed;
+  inset:0; z-index:2;
+  pointer-events:none;
+  background: repeating-linear-gradient(
+     to bottom,
+    var(--scanline),
+    var(--scanline) 2px,
+    transparent 2px,
+    transparent 17px
+  );
+  mix-blend-mode: lighten;
+}
+.term-flicker {
+  position:fixed; inset:0; pointer-events:none; z-index:3;
+  animation: flicker 2.75s infinite steps(70);
+  background:linear-gradient(90deg,rgba(21,255,101,0.06) 0 40%,transparent 70% 100%);
+}
+@keyframes flicker {
+  4%,7%,12% { opacity:.97;}
+  8%,13%,55% { opacity:.89;}
+  27%,50%,90% { opacity:1;}
+  31%,52% {opacity:.95;}
+  100% {opacity:.97;}
+}
+.term-body {
+  background: var(--term-glass);
+  border-radius: 14px;
+  box-shadow: 0 0 50px #21ff8c35, 0 0 0 #21ff93;
+  border: 2.7px solid var(--border-glow);
+  max-width: 720px; width:96vw;
+  margin: 0px auto;
+  position: relative;
+  z-index:99;
+  padding:0;
+}
+.term-topbar {
+  display: flex; align-items: center;
+  background: linear-gradient(90deg, #0d1714 93%,#22a98720 100%);
+  padding: 0.6em 1.1em 0.5em 1.15em;
+  border-bottom: 1.7px solid #0cffb180;
+  border-radius: 14px 14px 0 0;
+}
+.t-dot {
+  width:13px; height:13px; border-radius:50%; margin-right:7px;
+  box-shadow: 0 0 4px #59ffad99,0 0 0 #12ffb133;
+}
+.t-dot.red {background: #FF446B;}
+.t-dot.yellow {background:#FFDE46;}
+.t-dot.green {background: #12FF9E;}
+.t-title {
+  color: var(--neon-blue);
+  font-weight: bold;
+  margin-left:10px;
+  letter-spacing: 0.09em;
+  text-shadow:0 0 4px var(--neon-blue),0 0 12px #07ffc150;
+  font-size:1.08em;
+}
+.term-content {
+  position: relative;
+  padding: 2.1em 1.7em 2em 1.4em;
+  background: linear-gradient(110deg,#0c1511 75%,#062818 100%);
+  border-radius: 0 0 12px 12px;
+  box-shadow: 0 0 10px #13fda455;
+  color: var(--text-main);
+  font-size: 1.08em;
+  z-index:5;
+  min-height:220px;
+}
+.term-prompt-line {margin:0 0 0.85em 0;}
+.term-prompt {color: var(--neon-green); font-weight:bold; font-size: 1em;}
+.term-caret {color: var(--neon-green); font-weight: bold; animation: blink-caret 1.18s steps(1) infinite;}
+@keyframes blink-caret { 50% {opacity: 0; } }
+.term-codeblock {
+  background: #031410ed;
+  color: #a2ffc1;
+  font-family: 'Fira Mono', Consolas, monospace;
+  border-radius: 7px;
+  border: 1.3px solid var(--neon-blue);
+  box-shadow: 0 0 9px #13ffc366;
+  padding: 1.2em 1.5em 1em 1.5em;
+  font-size:1em;
+  margin-bottom: 1.6em;
+  position: relative;
+  overflow-x: auto;
+  min-height: 164px;
+  max-width: 100%;
+  word-break: break-all;
+}
+.term-codeblock .comment {color:#63ffe6;}
+.term-codeblock .keyword {color:#eaff5f;}
+.term-codeblock .function {color:#49ffd9;}
+.term-codeblock .string {color:#ffecac;}
+.term-codeblock .special {color:#5ffeef; font-weight:bold;}
+.term-codeblock .var {color:#68b6fd;}
+.term-codeblock .emoji {font-size:1.18em;}
+.term-msg {
+  background: linear-gradient(90deg,#073318 84%,#174b2b 100%);
+  border-left: 4px solid var(--neon-green);
+  color: var(--text-glow);
+  border-radius: 7px;
+  margin:1.06em 0 1.25em 0;
+  padding: 1.1em 1.2em 0.75em 1.3em;
+  font-size: 1.04em;
+  font-family: inherit;
+  text-shadow:0 0 2px #26ffb46d;
+  min-height: 81px;
+  word-break: break-word;
+}
+.term-names {
+  color:var(--neon-blue); font-weight: bold; font-style: italic; text-shadow: 0 0 2px #00ffe0b3;
+}
+.term-signature {
+  margin:2em 0 0 0;
+  color:var(--sig-color);
+  opacity: 0.93;
+  letter-spacing:0.04em;
+  font-size:0.97em;
+  text-align:center;
+  text-shadow: 0 0 3px #82ffdba0;
+}
+.term-stars {
+  color: var(--neon-purple); font-size:1.24em; margin-bottom:0.6em; display:inline-block;
+  animation: termStarBlink 1.7s infinite;
+  letter-spacing:0.12em;
+}
+@keyframes termStarBlink { 0%,100%{opacity:1;} 50%{opacity:0.22;} 67%{opacity:.49;}}
+.terminal-overlay {
+  position:fixed; left:0; top:0; width:100vw; height:100vh; z-index:2000;
+  background:rgba(17,25,25,0.93);
+  backdrop-filter: blur(3.5px);
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  transition:opacity 0.6s;
+}
+.terminal-overlay-content{
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  z-index:2011;
+}
+.terminal-overlay-btn {
+  background:linear-gradient(90deg,#0e4031 45%,#10fed3 100%);
+  border:2.5px solid #0affb3;
+  color:#19ffd2;
+  box-shadow:0 0 22px #19ffeba2, 0 0 49px #0affb324;
+  font-family:inherit;
+  font-size:1.3em;
+  padding:0.6em 2.3em;
+  border-radius:14px;
+  font-weight:bold;
+  margin-top:2.1em;
+  cursor:pointer;
+  letter-spacing:0.1em;
+  transition:background 0.2s,color 0.11s, box-shadow 0.12s,border 0.2s;
+  opacity:0.98;
+}
+.terminal-overlay-btn:hover {
+  background:linear-gradient(90deg,#17f7d2 40%,#0b2821 100%);
+  color:#1c1f1f;
+  box-shadow:0 0 44px #38fff2d6;
+}
+.terminal-overlay-title {
+  color:#18ffd7;
+  font-size:2.1em;
+  margin-bottom:0.63em;
+  font-weight:bold;
+  font-family:inherit;
+  letter-spacing:0.07em;
+  text-shadow:0 0 12px #38ffb288,0 0 4px #0dfeba77;
+}
+.terminal-overlay-desc {
+  color:#e2fff2;
+  font-size:1.09em;
+  font-weight:normal;
+  text-shadow:0 0 4px #91fff1a1,0 0 12px #14ffcf1f;
+  margin-top:0.22em;
+  padding-left: 20px;
+  
+}
+@media (max-width:900px){
+  .term-body {max-width:99vw;}
+  .term-topbar,.term-content{padding-left:0.57em;}
+}
+@media (max-width:700px){
+  .term-content {font-size:0.98em;}
+  .terminal-overlay-btn{font-size:1em;padding:0.48em 1em;}
+  .terminal-overlay-title{font-size:1.25em;}
+}
+@media (max-width:520px){
+  .term-body {max-width:100vw;width:100vw; padding: 5px;
+    margin: 25px;}
+  .term-content {padding:1.15em 0.2em 1.1em 0.15em;}
+  .term-codeblock, .term-msg {font-size:0.95em;padding-left:0.42em;min-width:0;}
+}
+@media (max-width: 410px) {
+  .term-topbar, .term-content{padding-left:0.05em;}
+  .term-codeblock, .term-msg{padding-left:0.17em; font-size:0.89em;}
+  .terminal-overlay-desc{font-size:0.91em;}
+}
+</style>
+</head>
+<body>
+<div class="terminal-overlay" id="terminal-overlay">
+  <div class="terminal-overlay-content">
+    <span class="terminal-overlay-title">Cyber Terminal Birthday</span>
+    <div class="terminal-overlay-desc">
+      Press to <span style="color:#47ffd1;font-weight:bold;">launch</span> the code and read message from your Kakajan.<br>
+    </div>
+    <button class="terminal-overlay-btn" id="overlay-btn">
+      ▶ Enter Terminal
+    </button>
+  </div>
+</div>
+<div class="cyber-grid" aria-hidden="true">
+  <svg width="100vw" height="100vh">
+    <defs>
+      <pattern id="tinyGrid" width="32" height="32" patternUnits="userSpaceOnUse">
+        <path d="M 32 0 L 0 0 0 32" fill="none" stroke="#19ff61" stroke-width="0.16"/>
+      </pattern>
+      <pattern id="grid" width="128" height="128" patternUnits="userSpaceOnUse">
+        <rect width="128" height="128" fill="url(#tinyGrid)"/>
+        <path d="M 128 0 L 0 0 0 128" fill="none" stroke="#19ff61" stroke-width="0.37"/>
+      </pattern>
+    </defs>
+    <rect width="100%" height="100%" fill="url(#grid)" />
+  </svg>
+</div>
+<div class="matrix-rain" aria-hidden="true">
+  <div class="matrix-column" style="--left:3vw;  --delay:-1.61s; --speed:6.7s;">Anbarin&#10;10110110&#10;01011010&#10;11010100&#10;01100110&#10;10100101</div>
+  <div class="matrix-column" style="--left:12vw; --delay:-2.81s; --speed:8.3s;">1001011&#10;0101101&#10;0110010&#10;1101010&#10;0111100&#10;0101010</div>
+  <div class="matrix-column" style="--left:24vw; --delay:-4.11s; --speed:7.2s;">0A N B A R I N 1&#10;110101&#10;101011&#10;110010&#10;0110</div>
+  <div class="matrix-column" style="--left:38vw; --delay:-1.23s; --speed:5.7s;">01101101&#10;10010110&#10;01110100&#10;10101001</div>
+  <div class="matrix-column" style="--left:56vw; --delay:-3.19s; --speed:8.5s;">10 0 11&#10;1011&#10;0110&#10;101101&#10;01010</div>
+  <div class="matrix-column" style="--left:68vw; --delay:-2.63s; --speed:7.7s;">10&#10;0110&#10;1&#10;1100&#10;01010101&#10;001011</div>
+  <div class="matrix-column" style="--left:74vw; --delay:-1.87s; --speed:9.6s;">hack the world&#10;0010&#10;00111</div>
+  <div class="matrix-column" style="--left:82vw; --delay:-3.95s; --speed:8.1s;">01100110&#10;01100110&#10;01010101&#10;011101</div>
+  <div class="matrix-column" style="--left:93vw; --delay:-6.2s; --speed:7.6s;">101010101&#10;End_of_Frame</div>
+</div>
+<div class="term-bg-scan"></div>
+<div class="term-flicker"></div>
+<div class="term-body">
+  <div class="term-topbar">
+    <div class="t-dot red"></div>
+    <div class="t-dot yellow"></div>
+    <div class="t-dot green"></div>
+    <span class="t-title">anbarin@terminal:~$</span>
+  </div>
+  <div class="term-content">
+    <div class="term-prompt-line">
+      <span class="term-prompt">anbarin@cyber:~$</span>
+      <span> python3 Kakajan_Message.py<span class="term-caret">_</span></span>
+    </div>
+    <div class="term-codeblock" id="code-type"></div>
+    <div class="term-prompt-line" style="margin:0.9em 0 0.7em 0;">
+      <span class="term-prompt">output:</span>
+    </div>
+    <div class="term-msg" id="msg-type"></div>
+    <div class="term-signature" id="sig-type" style="opacity:0">
+      <span class="term-stars">✦✦✦</span>
+      <br>
+      Wishing you a year as bright as TXT’s stars and as inspiring as your favorite music.<br>
+      <strong>— With love from your uncle &amp; Khala + Hilal 💚</strong>
+    </div>
+  </div>
+</div>
+<script>
+const initialSpeed = 38;
+const finalSpeed = 8;
+
+const codeText =
+`<span class="comment"># Happy Birthday, Anbarin<span class="term-caret">_</span> Jan! <span class="emoji">🎂🎉</span></span>
+<span class="keyword">def</span> <span class="function">birthday_wishes</span>(<span class="var">name</span>):
+    <span class="var">wishes</span> = [
+        <span class="string">"Endless creativity 💡"</span>,
+        <span class="string">"Bug-free projects 🐞"</span>,
+        <span class="string">"Powerful coffee ☕"</span>,
+        <span class="string">"Joyful TXT music moments 🎵"</span>,
+        <span class="special">"Magical days filled with star energy ✦"</span>
+    ]
+    <span class="keyword">for</span> <span class="var">wish</span> <span class="keyword">in</span> <span class="var">wishes</span>:
+        <span class="keyword">print</span>(<span class="var">wish</span>)
+<span class="function">birthday_wishes</span>(<span class="string">"Anbarin"</span>)`;
+
+const msgText =
+`Anbarin<span class="term-caret">_</span>, may your year be bright and inspiring, just like TXT’s music.<br>
+May you always find creativity like <span class="term-names">Soobin</span>,
+energy like <span class="term-names">Yeonjun</span>,
+joy like <span class="term-names">Beomgyu</span>,
+wisdom like <span class="term-names">Taehyun</span>,
+and wonder like <span class="term-names">Hueningkai</span>.<br>
+Keep shining, dreaming, and coding! ✦`;
+
+function typeEffect(el, html, speedStart, speedEnd, cb) {
+  let i=0, L=html.length, out='', inTag=false, tagBuf='';
+  function nextDelay() {
+    let frac = L>8 ? i/(L-1) : 1;
+    return Math.round(speedStart - (speedStart-speedEnd) * frac);
+  }
+  function step() {
+    if (i < L) {
+      let ch = html[i];
+      if (ch === '<') inTag = true;
+      if (inTag) { tagBuf += ch; if (ch === '>') {out += tagBuf; tagBuf=''; inTag=false;} }
+      else { out += ch; }
+      el.innerHTML = out+(inTag?'': '<span class="term-caret">_</span>');
+      i++;
+      setTimeout(step, inTag?0:nextDelay());
+    } else { el.innerHTML = out; if(cb) cb(); }
+  }
+  step();
+}
+window.addEventListener('DOMContentLoaded', function(){
+  let overlay = document.getElementById('terminal-overlay');
+  let overlayBtn = document.getElementById('overlay-btn');
+  overlayBtn.addEventListener('click', function(){
+    overlay.style.opacity=0;
+    setTimeout(()=>{overlay.style.display='none';},650);
+    const codeElem = document.getElementById('code-type');
+    const msgElem = document.getElementById('msg-type');
+    const sigElem = document.getElementById('sig-type');
+    typeEffect(codeElem, codeText, initialSpeed, finalSpeed, ()=>
+      setTimeout(()=>typeEffect(msgElem, msgText, initialSpeed, finalSpeed, ()=>
+        setTimeout(()=>{sigElem.style.opacity=1;}, 420)
+      ), 540)
+    );
+  });
+  document.addEventListener('keydown', function(e){
+    let overlay = document.getElementById('terminal-overlay');
+    if(!overlay || overlay.style.display==='none') return;
+    if(e.key === 'Enter'){
+      document.getElementById('overlay-btn').click();
+    }
+  });
+});
+</script>
+</body>
+</html>
